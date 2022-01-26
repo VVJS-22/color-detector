@@ -40,7 +40,7 @@ const Wrapper = styled.header`
             color: #ffffff;
             z-index: 10;
 
-            @media screen and (min-width: 300px) {
+            @media screen and (min-width: 330px) {
                 font-size: 1.75rem;
             }
         }
