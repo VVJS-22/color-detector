@@ -13,7 +13,7 @@ const PrimeSection = ({ primeGradient, children }) => {
 
 const Wrapper = styled.section`
     width: 100%;
-    /* height: 65%; */
+    /* height: 75%; */
     position: relative;
     display: flex;
     flex-direction: column;

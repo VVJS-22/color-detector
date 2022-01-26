@@ -47,7 +47,6 @@ const Home = () => {
 }
 
 const Wrapper = styled.main`
-  height: 640px;
   min-height: 100vh;
   display: flex;
   justify-content: center;

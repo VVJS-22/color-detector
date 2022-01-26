@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components'
-import Header from './Header';
 
 const Layout = (props) => {
     const { children} = props
@@ -12,7 +11,6 @@ const Layout = (props) => {
 };
 
 const Wrapper = styled.section`
-    /* height: 100%; */
     width: 100%;
     max-width: 500px;
     box-shadow: -10px -10px 20px rgba(0, 0, 0, 0.25), 10px 10px 20px rgba(0, 0, 0, 0.25);

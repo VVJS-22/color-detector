@@ -23,6 +23,7 @@ const Wrapper = styled.section`
     display: flex;
     justify-content: center;
     align-content: center;
+    flex: 1;
     
     .tool {
         &-deck {
