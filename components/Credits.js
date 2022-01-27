@@ -51,6 +51,7 @@ const Credits = () => {
 const Wrapper = styled.section`
 
     background: #2e323e;
+    margin-top: 3rem;
 
     .credits-deck {
         display: flex;
@@ -60,7 +61,7 @@ const Wrapper = styled.section`
         width: 100%;
         /* height: 200px; */
         flex-direction: column;
-        padding: 1rem 2rem;
+        padding: 1rem;
     }
     
     p, .address-data {
