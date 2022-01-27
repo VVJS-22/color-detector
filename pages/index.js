@@ -5,9 +5,10 @@ import Header from '../components/Header'
 import SelectedImage from '../components/SelectedImage'
 import { homeProps } from '../lib/generators/layoutGenerator'
 import ImageViewer from '../components/ImageViewer'
-import Credits from '../components/Credits'
+import Footer from '../components/Footer'
 import PrimeSection from '../components/PrimeSection'
 import Toolbar from '../components/Toolbar'
+import Credits from '../components/Credits'
 
 
 // colors: {
@@ -38,8 +39,9 @@ const Home = () => {
               <ImageViewer src="/assets/icons/album.svg"/>
             </SelectedImage>
           </PrimeSection>
-          <Toolbar />
           <Credits />
+          <Toolbar />
+          <Footer />
         </Layout>
       </Wrapper>
     </>
