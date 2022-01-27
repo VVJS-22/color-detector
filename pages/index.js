@@ -38,8 +38,8 @@ const Home = () => {
               <ImageViewer src="/assets/icons/album.svg"/>
             </SelectedImage>
           </PrimeSection>
-          <Credits />
           <Toolbar />
+          <Credits />
         </Layout>
       </Wrapper>
     </>

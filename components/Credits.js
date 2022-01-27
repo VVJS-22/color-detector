@@ -5,22 +5,33 @@ import styled from 'styled-components';
 const Credits = () => {
     return (
         <Wrapper>
-            <p>Powered by</p>
-            <Image 
-                src='/assets/icons/fullLogo.svg'
-                width={120}
-                height={60}
-                alt="Ambion Softwares"
-            />
+            <div className="credits-deck">
+                <p>Powered by</p>
+                <Image 
+                    src='/assets/icons/fullLogo.svg'
+                    width={120}
+                    height={60}
+                    alt="Ambion Softwares"
+                />
+            </div>
         </Wrapper>
     );
 };
 
 const Wrapper = styled.section`
+
+    flex: 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem 0 0;
+
+    .credits-deck {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 0;
+        align-self: flex-end;
+        width: 100%;
+    }
+    
     p {
         color: #1591D8;
         font-weight: 600;
