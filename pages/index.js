@@ -26,7 +26,7 @@ const headerContent = {
 
 const Home = () => {
 
-  const [ loading, setLoading ] = useState(false)
+  const [ loading, setLoading ] = useState(true)
 
   const loadCallback = useCallback(() => {
     setLoading(false)
@@ -34,7 +34,6 @@ const Home = () => {
   }, [loading])
 
   useEffect(() => {
-    setLoading(true)
     setTimeout(() => setLoading(false), 6000)
   }, [])
 
