@@ -6,9 +6,6 @@ const ImageViewer = ({ src, styles }) => {
     return (
         <Wrapper>
             <div className='viewer-div' style={styles}>
-                <div className='loader'>
-                loading ...
-                </div>
                 <Image
                 src = { src }
                 width = "100%"
@@ -30,14 +27,6 @@ const Wrapper = styled.section`
     .viewer-div {
         width: 60%;
         position: relative;
-
-        .loader {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #252525;
-        }
     }
 `
 
