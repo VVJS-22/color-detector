@@ -51,7 +51,7 @@ const Footer = () => {
 const Wrapper = styled.section`
 
     background: #2e323e;
-    margin-top: 3rem;
+    margin-top: 2rem;
 
     .credits-deck {
         display: flex;
