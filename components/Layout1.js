@@ -12,6 +12,7 @@ const Layout = (props) => {
 
 const Wrapper = styled.section`
     width: 100%;
+    /* height: 150vh; */
     max-width: 500px;
     box-shadow: -10px -10px 20px rgba(0, 0, 0, 0.25), 10px 10px 20px rgba(0, 0, 0, 0.25);
     display: flex;

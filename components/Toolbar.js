@@ -23,6 +23,7 @@ const Wrapper = styled.section`
     display: flex;
     justify-content: center;
     align-content: center;
+    flex: 1;
     
     .tool {
         &-deck {
@@ -35,6 +36,8 @@ const Wrapper = styled.section`
             display: flex;
             justify-content: space-around;
             align-items: center;
+            align-self: flex-end;
+            padding: 1rem;
         }
     }
 
