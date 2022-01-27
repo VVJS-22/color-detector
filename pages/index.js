@@ -9,6 +9,8 @@ import Footer from '../components/Footer'
 import PrimeSection from '../components/PrimeSection'
 import Toolbar from '../components/Toolbar'
 import Credits from '../components/Credits'
+import { HashLoader } from 'react-spinners'
+import { useCallback, useEffect, useState } from 'react'
 
 
 // colors: {
@@ -23,6 +25,19 @@ const headerContent = {
 }
 
 const Home = () => {
+
+  const [ loading, setLoading ] = useState(false)
+
+  const loadCallback = useCallback(() => {
+    setLoading(false)
+    console.log(loading)
+  }, [loading])
+
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => setLoading(false), 3000)
+  }, [])
+
   return (
     <>
       <Head>
@@ -31,6 +46,15 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      { loading 
+            ?
+            <div className="loader-flex">
+                <HashLoader 
+                color="#3BC9F3" 
+                loading={loading} 
+                size={80} />
+            </div> 
+            :  
       <Wrapper>
         <Layout>
           <PrimeSection primeGradient="#f26263">
@@ -43,7 +67,8 @@ const Home = () => {
           <Toolbar />
           <Footer />
         </Layout>
-      </Wrapper>
+      </Wrapper> 
+      }
     </>
   )
 }

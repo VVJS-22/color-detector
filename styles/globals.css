@@ -16,6 +16,18 @@ a {
   box-sizing: border-box;
 }
 
+.loader-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+html, body, #__next {
+  height: 100%;
+}
+
 
 /* .gradient {
   background: rgb(242,98,99);
