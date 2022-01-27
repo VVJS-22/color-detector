@@ -64,6 +64,7 @@ const Wrapper = styled.main`
   min-height: 100vh;
   display: flex;
   justify-content: center;
+  color: #ffffff;
 `
 
 
