@@ -12,6 +12,7 @@ const ImageViewer = ({ src, styles }) => {
                 height = "100%"
                 layout = 'responsive'
                 alt='Check the file'
+                priority
                 />
             </div>
         </Wrapper>

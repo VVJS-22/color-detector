@@ -2,14 +2,33 @@ import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
 
-const ToolItem = ({ icon, label}) => {
+const ToolItem = (props) => {
+
+    const printResult = (event) => {
+        return console.log(event.target.files[0])
+    }
+
+    const {
+        icon,
+        label,
+        input
+    } = props
+
     return (
         <Wrapper>
+            <label htmlFor={input.id} >
             <Image 
             src={icon}
             width={50}
             height={50}
             alt = {label}
+            priority
+            />
+            </label>
+            <input 
+            {...input}
+            style={{display: 'none'}}
+            onChange={printResult}
             />
             <div className="label">{label}</div>
         </Wrapper>

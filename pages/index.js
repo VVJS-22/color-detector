@@ -26,7 +26,7 @@ const headerContent = {
 
 const Home = () => {
 
-  const [ loading, setLoading ] = useState(true)
+  const [ loading, setLoading ] = useState(false)
 
   const loadCallback = useCallback(() => {
     setLoading(false)

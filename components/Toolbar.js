@@ -10,9 +10,9 @@ const Tool = () => {
 const Toolbar = () => {
     return (
         <Wrapper>
-            <div className="tool-deck">
+            <form onSubmit="" className="tool-deck">
                 <Tool />
-            </div>
+            </form>
         </Wrapper>
     )
 };
