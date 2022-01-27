@@ -27,7 +27,6 @@ const ToolItem = (props) => {
             </label>
             <input 
             {...input}
-            style={{display: 'none'}}
             onChange={printResult}
             />
             <div className="label">{label}</div>
