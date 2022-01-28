@@ -28,13 +28,19 @@ const headerContent = {
 
 const Home = ({setResults, setSrc, src}) => {
 
-  const [ loading, setLoading ] = useState(false)
+  const [ loading, setLoading ] = useState(true)
   const [ isOpen, setIsOpen ] = useState(false)
 
 
   useEffect(() => {
     setSrc('/assets/icons/album.svg')
     setResults(null)
+  }, [])
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 3000)
   }, [])
 
 
