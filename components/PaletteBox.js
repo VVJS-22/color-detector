@@ -44,6 +44,7 @@ const Wrapper = styled.section`
             justify-content: space-evenly;
             padding: 1rem;
             cursor: pointer;
+            user-select: none;
 
             @media screen and (min-width: 360px) {
                 grid-template-columns: auto auto;
