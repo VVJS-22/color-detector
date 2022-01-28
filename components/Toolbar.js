@@ -27,7 +27,7 @@ const Toolbar = ({setSrc, setLoading, setResults}) => {
 
     const isInvalid = input.src === "" || input.number === ""
 
-    const SECRET_URL = 'https://color-detector-api-n.herokuapp.com/'
+    const SECRET_URL = 'https://color-detector-api.herokuapp.com/'
 
     const displayOption = useCallback(() => {
         setOption((state) => !state)
@@ -65,13 +65,18 @@ const Toolbar = ({setSrc, setLoading, setResults}) => {
 
                     const resultObj = response.data.data
                     const resultArr = Object.entries(resultObj)
-                    resultArr.sort((a,b) => {
+                    const re = resultArr.filter(item => {
+                        return item[1] > 0
+                    })
+                    re.sort((a,b) => {
                         return b[1] - a[1]
                     })
-                    console.log(resultArr)
-                    setLoading(false)
-                    setResults(resultArr)
+                    console.log(re)
+                    setResults(re)
                     router.push('results')
+                    setTimeout(() => {
+                        setLoading(false)
+                    }, 1000)
                 } catch (error) {
                     alert(error)
                     setLoading(false)

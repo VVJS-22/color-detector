@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 
 const Palette = ({ code, percentage }) => {
 
-    const copy = (text) => {
+    const [ display, setDisplay ] = useState(false)
+
+    const copy = useCallback((text) => {
+        setDisplay(true)
+        setTimeout(() => {
+            setDisplay(false)
+        }, 200)
         return navigator.clipboard.writeText(text)
-    }
+    }, [display])
 
     return (
-        <Wrapper code={code}>
+        <Wrapper code={code} display={display}>
             <div 
             className="palette-div"
             onClick={() => {
@@ -74,6 +80,7 @@ const Wrapper = styled.section`
         padding: 0.2rem 0.5rem;
         font-size: 0.75rem;
         border-radius: 0.25rem;
+        display: ${({display}) => (display ? 'block' : 'none')};
     }
 `
 

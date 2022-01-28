@@ -26,9 +26,13 @@ const resultBorder = {
   borderImageSource: 'linear-gradient(315deg, rgba(0,0,0,0.25) 25%, #F26263 100%)'
 }
 
-const Results = ({results, setResults}) => {
+const Results = ({results, src }) => {
 
   const router = useRouter()
+
+  const goBack = () => {
+    window.location.href = '/'
+  }
 
   useEffect(() => {
     console.log(results)
@@ -49,10 +53,10 @@ const Results = ({results, setResults}) => {
         results && <Wrapper>
           <Layout>
             <PrimeSection primeGradient="#f5aa50">
-              <Header {...resultProps} />
+              <Header {...resultProps} goBack={goBack} />
               <SelectedImage>
                 <ImageViewer 
-                src="/assets/sampleImages/sample1.png"
+                src={src}
                 styles={resultBorder}
                 />
               </SelectedImage>

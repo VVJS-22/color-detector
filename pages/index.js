@@ -10,7 +10,7 @@ import PrimeSection from '../components/PrimeSection'
 import Toolbar from '../components/Toolbar'
 import Credits from '../components/Credits'
 import { HashLoader } from 'react-spinners'
-import { useCallback, useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 
 
 // colors: {
@@ -24,19 +24,13 @@ const headerContent = {
   title: "Color Detector"
 }
 
-const Home = ({setResults}) => {
+const Home = ({setResults, setSrc, src}) => {
 
-  const [ loading, setLoading ] = useState(true)
-
-  const [ src, setSrc ] = useState('/assets/icons/album.svg')
-
-  const loadCallback = useCallback(() => {
-    setLoading(false)
-    console.log(loading)
-  }, [loading])
+  const [ loading, setLoading ] = useState(false)
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 3000)
+    setSrc('/assets/icons/album.svg')
+    setResults(null)
   }, [])
 
   return (

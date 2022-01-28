@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 import Image from 'next/image';
 
-const Header = ({ title, buttonItems: { navIcon, iconWidth = "60px", padding = "0.5rem" } }) => {
+const Header = ({ title, buttonItems: { navIcon, iconWidth = "60px", padding = "0.5rem" }, goBack = () => (null) }) => {
     return (
         <Wrapper padding = {padding}>
             <div className='header-hamburger'>
@@ -11,6 +11,7 @@ const Header = ({ title, buttonItems: { navIcon, iconWidth = "60px", padding = "
                 width={iconWidth} 
                 height="100%"
                 alt='Navigate'
+                onClick={goBack}
                 />
             </div>
             <h1 className='header-title'>{title}</h1>
