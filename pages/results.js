@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Head from 'next/head'
 import Layout from '../components/Layout1'
 import styled from 'styled-components'
@@ -10,6 +10,7 @@ import ImageViewer from '../components/ImageViewer'
 import Credits from '../components/Credits'
 import PaletteBox from '../components/PaletteBox'
 import Palette from '../components/Palette'
+import { useRouter } from 'next/router'
 
 
 // colors: {
@@ -25,7 +26,17 @@ const resultBorder = {
   borderImageSource: 'linear-gradient(315deg, rgba(0,0,0,0.25) 25%, #F26263 100%)'
 }
 
-const Results = () => {
+const Results = ({results, setResults}) => {
+
+  const router = useRouter()
+
+  useEffect(() => {
+    console.log(results)
+    if (!results) {
+      router.push('/')
+    }
+  }, [results])
+
   return (
     <>
       <Head>
@@ -34,28 +45,33 @@ const Results = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Wrapper>
-        <Layout>
-          <PrimeSection primeGradient="#f5aa50">
-            <Header {...resultProps} />
-            <SelectedImage>
-              <ImageViewer 
-              src="/assets/sampleImages/sample1.png"
-              styles={resultBorder}
-              />
-            </SelectedImage>
-          </PrimeSection>
-          <Credits />
-          <PaletteBox>
-            <Palette />
-            <Palette />
-            <Palette />
-            <Palette />
-            <Palette />
-
-          </PaletteBox>
-        </Layout>
-      </Wrapper>
+      {
+        results && <Wrapper>
+          <Layout>
+            <PrimeSection primeGradient="#f5aa50">
+              <Header {...resultProps} />
+              <SelectedImage>
+                <ImageViewer 
+                src="/assets/sampleImages/sample1.png"
+                styles={resultBorder}
+                />
+              </SelectedImage>
+            </PrimeSection>
+            <Credits />
+            <PaletteBox>
+              {
+                results.map(result => (
+                  <Palette 
+                  key={result[0]}
+                  code={result[0]} 
+                  percentage={result[1]}
+                  />
+                ))
+              }
+            </PaletteBox>
+          </Layout>
+        </Wrapper>
+      }
     </>
   )
 }

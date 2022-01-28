@@ -24,9 +24,11 @@ const headerContent = {
   title: "Color Detector"
 }
 
-const Home = () => {
+const Home = ({setResults}) => {
 
-  const [ loading, setLoading ] = useState(false)
+  const [ loading, setLoading ] = useState(true)
+
+  const [ src, setSrc ] = useState('/assets/icons/album.svg')
 
   const loadCallback = useCallback(() => {
     setLoading(false)
@@ -34,7 +36,7 @@ const Home = () => {
   }, [loading])
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 6000)
+    setTimeout(() => setLoading(false), 3000)
   }, [])
 
   return (
@@ -59,11 +61,11 @@ const Home = () => {
           <PrimeSection primeGradient="#f26263">
             <Header {...homeProps} />
             <SelectedImage>
-              <ImageViewer src="/assets/icons/album.svg"/>
+              <ImageViewer src={src} />
             </SelectedImage>
           </PrimeSection>
           <Credits />
-          <Toolbar />
+          <Toolbar setSrc={setSrc} setLoading={setLoading}setResults={setResults}/>
           <Footer />
         </Layout>
       </Wrapper> 
