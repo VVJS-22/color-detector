@@ -40,7 +40,7 @@ const Home = ({setResults, setSrc, src}) => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false)
-    }, 3000)
+    }, 4000)
   }, [])
 
 

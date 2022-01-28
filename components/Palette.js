@@ -18,7 +18,8 @@ const Palette = ({ code, percentage }) => {
         <Wrapper code={code} display={display}>
             <div 
             className="palette-div"
-            onClick={() => {
+            onClick={(event) => {
+                event.stopPropagation()
                 copy(code)
             }}
             >
