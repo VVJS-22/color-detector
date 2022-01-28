@@ -2,7 +2,16 @@ import React from 'react';
 import styled from 'styled-components'
 import Image from 'next/image';
 
-const Header = ({ title, buttonItems: { navIcon, iconWidth = "60px", padding = "0.5rem" }, goBack = () => (null) }) => {
+const Header = ({ 
+    title, 
+    buttonItems: { 
+        navIcon, 
+        iconWidth = "38px", 
+        padding = "1rem" 
+    }, 
+    goBack = () => (null), 
+    setIsOpen = () => (null)
+}) => {
     return (
         <Wrapper padding = {padding}>
             <div className='header-hamburger'>
@@ -11,7 +20,10 @@ const Header = ({ title, buttonItems: { navIcon, iconWidth = "60px", padding = "
                 width={iconWidth} 
                 height="100%"
                 alt='Navigate'
-                onClick={goBack}
+                onClick={() => {
+                    setIsOpen(true)
+                    goBack()
+                }}
                 />
             </div>
             <h1 className='header-title'>{title}</h1>
@@ -40,6 +52,8 @@ const Wrapper = styled.header`
             font-weight: 900;
             color: #ffffff;
             z-index: 10;
+            pointer-events: none;
+            user-select: none;
 
             @media screen and (min-width: 330px) {
                 font-size: 1.75rem;
@@ -47,9 +61,13 @@ const Wrapper = styled.header`
         }
         &-hamburger {
             padding: ${({padding}) => padding};
+            cursor: pointer;
+            user-select: none;
         }
         &-logo {
             padding: 1rem;
+            user-select: none;
+            pointer-events: none;
         }
     }
 `

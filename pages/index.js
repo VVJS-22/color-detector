@@ -11,6 +11,7 @@ import Toolbar from '../components/Toolbar'
 import Credits from '../components/Credits'
 import { HashLoader } from 'react-spinners'
 import { useState, useEffect } from 'react'
+import Navbar from '../components/Navbar'
 
 
 // colors: {
@@ -24,14 +25,19 @@ const headerContent = {
   title: "Color Detector"
 }
 
+
 const Home = ({setResults, setSrc, src}) => {
 
   const [ loading, setLoading ] = useState(false)
+  const [ isOpen, setIsOpen ] = useState(false)
+
 
   useEffect(() => {
     setSrc('/assets/icons/album.svg')
     setResults(null)
   }, [])
+
+
 
   return (
     <>
@@ -49,18 +55,21 @@ const Home = ({setResults, setSrc, src}) => {
                 loading={loading} 
                 size={80} />
             </div> 
-            :  
+            : 
       <Wrapper>
         <Layout>
           <PrimeSection primeGradient="#f26263">
-            <Header {...homeProps} />
+            <Header {...homeProps} setIsOpen={setIsOpen} />
+            <Navbar isOpen={isOpen} setIsOpen={setIsOpen}/>
             <SelectedImage>
               <ImageViewer src={src} />
             </SelectedImage>
           </PrimeSection>
+          { isOpen || <>
           <Credits />
           <Toolbar setSrc={setSrc} setLoading={setLoading}setResults={setResults}/>
           <Footer />
+          </>}
         </Layout>
       </Wrapper> 
       }

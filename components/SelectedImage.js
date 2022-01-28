@@ -15,6 +15,7 @@ const Wrapper = styled.section`
         font-weight: 700;
         font-size: 1.25rem;
         padding: 1.7rem 1rem 1rem;
+        user-select: none;
     }
 `
 

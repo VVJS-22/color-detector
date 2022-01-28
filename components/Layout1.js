@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Layout = (props) => {
     const { children} = props
     return (
-        <Wrapper>
+        <Wrapper style={{overflowY: 'hidden'}}>
             {children}
         </Wrapper>
     );

@@ -35,6 +35,7 @@ const Wrapper = styled.section`
             font-size: 1.125rem;
             font-weight: 600;
             text-transform: capitalize;
+            user-select: none;
         }
 
         &-section {
@@ -42,6 +43,7 @@ const Wrapper = styled.section`
             grid-template-columns: auto;
             justify-content: space-evenly;
             padding: 1rem;
+            cursor: pointer;
 
             @media screen and (min-width: 360px) {
                 grid-template-columns: auto auto;

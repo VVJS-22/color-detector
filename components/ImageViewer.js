@@ -28,6 +28,8 @@ const Wrapper = styled.section`
     .viewer-div {
         width: 60%;
         position: relative;
+        user-select: none;
+        pointer-events: none;
     }
 `
 

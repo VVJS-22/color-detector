@@ -10,7 +10,7 @@ const Palette = ({ code, percentage }) => {
         setDisplay(true)
         setTimeout(() => {
             setDisplay(false)
-        }, 200)
+        }, 300)
         return navigator.clipboard.writeText(text)
     }, [display])
 

@@ -21,6 +21,8 @@ const Wrapper = styled.section`
     justify-content: center;
     align-items: center;
     padding: 1rem 0 0;
+    user-select: none;
+    pointer-events: none;
 
     p {
         color: #1591D8;

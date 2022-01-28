@@ -90,11 +90,11 @@ const Toolbar = ({setSrc, setLoading, setResults}) => {
     return (
         <Wrapper display = {option}>
             <form onSubmit={handleSubmit} className="tool-deck">
-                <div 
-                title="Capture / Select an image"
+                <div
                 className="input-wrapper">
                     <label htmlFor='img' >
                         <Image 
+                        className='tool-icon'
                         src='/assets/icons/addImage.svg'
                         width={50}
                         height={50}
@@ -116,7 +116,8 @@ const Toolbar = ({setSrc, setLoading, setResults}) => {
                 onClick={displayOption}
                 className="input-wrapper number">
                     <Image 
-                        src='/assets/icons/addImage.svg'
+                        className='tool-icon'
+                        src='/assets/icons/palette.svg'
                         width={50}
                         height={50}
                         alt = 'Select type'
@@ -134,6 +135,7 @@ const Toolbar = ({setSrc, setLoading, setResults}) => {
                 <div className="input-wrapper">
                     <button type="submit">
                         <Image 
+                            className='tool-icon'
                             src='/assets/icons/process.svg'
                             width={50}
                             height={50}
@@ -155,6 +157,7 @@ const Wrapper = styled.section`
     justify-content: center;
     align-content: center;
     margin-top: 1rem;
+
     
     .tool {
         &-deck {
@@ -169,6 +172,9 @@ const Wrapper = styled.section`
             align-items: center;
             padding: 1rem;
         }
+        &-icon {
+            cursor: pointer;
+        }
     }
 
     .input-wrapper {
@@ -176,6 +182,7 @@ const Wrapper = styled.section`
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        user-select: none;
 
         .label {
         font-size: 0.875rem;
@@ -184,30 +191,17 @@ const Wrapper = styled.section`
         }
     }
 
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-
     button[type=submit] {
         border: none;
         background: transparent;
     }
 
-    /* input[type=number] {
-        border: 0.25rem solid #1591D8;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        text-align: center;
-        margin-bottom: 0.2rem;
-        outline: none;
-        -moz-appearance: textfield;
-    } */
-
     .input-wrapper.number {
         position: relative;
+
+        .label {
+            padding-top: 0.25rem;
+        }
     }
 
 
@@ -219,9 +213,9 @@ const Wrapper = styled.section`
         bottom: 0;
         display: ${({display}) => display ? 'block' : 'none'};
         background: #F26263;
-        background: -moz-linear-gradient(244.83deg, #F26263 54.68%, #3BC9F3 132.14%);
+        /* background: -moz-linear-gradient(244.83deg, #F26263 54.68%, #3BC9F3 132.14%);
         background: -webkit-linear-gradient(244.83deg, #F26263 54.68%, #3BC9F3 132.14%);
-        background: linear-gradient(244.83deg, #F26263 54.68%, #3BC9F3 132.14%);
+        background: linear-gradient(244.83deg, #F26263 54.68%, #3BC9F3 132.14%); */
         border-radius: 1rem;
         box-shadow: inset 10px 10px 20px #F26263, inset -10px -10px 20px rgba(0, 0, 0, 0.25);
         z-index: 10;
@@ -232,17 +226,8 @@ const Wrapper = styled.section`
 const Option = styled.section`
     text-align: center;
     padding: 0.5rem;
+    cursor: pointer;
+    user-select: none;
 `
 
 export default React.memo(Toolbar);
-
-{/* <input 
-                    title='Enter number of colors respctive to the purpose | ex: 3 to 5 for UI Palettes and 200 for Palette Wala'
-                    type='number'
-                    name='img'
-                    id='number'
-                    placeholder='0'
-                    onChange={printResult}
-                    min='1'
-                    max='50'
-                    /> */}
