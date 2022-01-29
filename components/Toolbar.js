@@ -173,11 +173,11 @@ const Wrapper = styled.section`
             align-items: center;
             padding: 1rem;
 
-            @media screen and (min-width: 370px) {
+            @media screen and (min-width: 330px) {
                 width: 90%;
             }
 
-            @media screen and (max-width:370px) {
+            @media screen and (max-width:330px) {
                 flex-direction: column;
                 justify-content: center;
                 align-items: space-around;
