@@ -35,7 +35,6 @@ const Results = ({results, src }) => {
   }
 
   useEffect(() => {
-    console.log(results)
     if (!results) {
       router.push('/')
     }

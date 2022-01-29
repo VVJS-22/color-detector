@@ -154,7 +154,7 @@ const Toolbar = ({setSrc, setLoading, setResults}) => {
 
 const Wrapper = styled.section`
 
-    height: 150px;
+    /* height: 150px; */
     display: flex;
     justify-content: center;
     align-content: center;
@@ -163,7 +163,6 @@ const Wrapper = styled.section`
     
     .tool {
         &-deck {
-            width: 90%;
             /* height: 100%; */
             background: #faaa50fa;
             border-radius: 1rem;
@@ -173,6 +172,20 @@ const Wrapper = styled.section`
             justify-content: space-around;
             align-items: center;
             padding: 1rem;
+
+            @media screen and (min-width: 370px) {
+                width: 90%;
+            }
+
+            @media screen and (max-width:370px) {
+                flex-direction: column;
+                justify-content: center;
+                align-items: space-around;
+
+                .input-wrapper {
+                    padding: 1rem 0;
+                }
+            }
         }
         &-icon {
             cursor: pointer;
@@ -230,7 +243,7 @@ const Wrapper = styled.section`
 `
 
 const Option = styled.section`
-    text-align: center;
+    /* text-align: center; */
     padding: 0.5rem;
     cursor: pointer;
     user-select: none;

@@ -1,5 +1,17 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
+import { navLinks } from '../lib/generators/navBarGenerator';
+
+const NavLink = React.memo(({url, label, target}) => {
+    return ( 
+        <Nav>
+            <a target={target} href={url}>{label}</a>
+        </Nav>
+    );
+});
+
+NavLink.displayName = 'NavLink'
+
 
 const Navbar = ({isOpen, setIsOpen}) => {
     return (
@@ -10,6 +22,11 @@ const Navbar = ({isOpen, setIsOpen}) => {
                     setIsOpen(false)
                 }, [isOpen])}
                 className="navbar-close-btn">X</div>
+                <div className="navbar-items">
+                    {
+                        navLinks.map(item => <NavLink key={item.id} {...item}/>)
+                    }
+                </div>
             </div>
         </Wrapper>
     );
@@ -44,7 +61,22 @@ const Wrapper = styled.section`
             user-select: none;
             cursor: pointer;
         }
+
+        &-items {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
     }
+`
+
+const Nav = styled.section`
+    padding: 1rem;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 `
 
 export default Navbar;
