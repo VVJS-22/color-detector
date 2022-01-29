@@ -124,12 +124,14 @@ const Toolbar = ({setSrc, setLoading, setResults}) => {
                         priority
                     />
                     <div className="label">{input.type}</div>
-                    <div className="selection">
+                    <div className="selection-deck">
+                        <div className="selection">
                         {
                             paletteOptions.map(option => (
                                 <OptionComp key={option.id} setPaletteNumber={setPaletteNumber} {...option} />
                             ))
                         }
+                        </div>
                     </div>
                 </div>
                 <div className="input-wrapper">
@@ -198,27 +200,31 @@ const Wrapper = styled.section`
 
     .input-wrapper.number {
         position: relative;
-
+        width: 48%;
         .label {
             padding-top: 0.25rem;
+            text-align: center;
         }
     }
 
 
-    .selection {
+    .selection-deck {
         width: 200px;
-        /* height: 200px; */
-        background: #45645567;
+        height: 140px;
         position: absolute;
         bottom: 0;
-        display: ${({display}) => display ? 'block' : 'none'};
-        background: #F26263;
-        /* background: -moz-linear-gradient(244.83deg, #F26263 54.68%, #3BC9F3 132.14%);
-        background: -webkit-linear-gradient(244.83deg, #F26263 54.68%, #3BC9F3 132.14%);
-        background: linear-gradient(244.83deg, #F26263 54.68%, #3BC9F3 132.14%); */
-        border-radius: 1rem;
-        box-shadow: inset 10px 10px 20px #F26263, inset -10px -10px 20px rgba(0, 0, 0, 0.25);
+        overflow: hidden;
+        cursor: pointer;
         z-index: 10;
+        
+    }
+
+    .selection {
+        background: #F26263;
+        border-radius: ${({display}) => (display ? '1rem' : '50%')};
+        box-shadow: inset 10px 10px 20px #F26263, inset -10px -10px 20px rgba(0, 0, 0, 0.25);
+        transition: all 0.4s ease-in;
+        transform: ${({display}) => (display ? 'translateY(0)' : 'translateY(100%)')}
     }
 
 `

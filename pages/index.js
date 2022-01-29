@@ -10,7 +10,7 @@ import PrimeSection from '../components/PrimeSection'
 import Toolbar from '../components/Toolbar'
 import Credits from '../components/Credits'
 import { HashLoader } from 'react-spinners'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import Navbar from '../components/Navbar'
 
 
@@ -21,15 +21,21 @@ import Navbar from '../components/Navbar'
 //   'gradient-blue': '#3BC9F3'
 // }
 
-const headerContent = {
-  title: "Color Detector"
-}
-
 
 const Home = ({setResults, setSrc, src}) => {
 
   const [ loading, setLoading ] = useState(true)
   const [ isOpen, setIsOpen ] = useState(false)
+  const [ hide, setHide ] = useState(false)
+
+
+  useMemo(() => {
+    setTimeout(() => {
+      isOpen && setHide(true)
+    }, 400)
+
+    isOpen || setHide(false)
+  }, [isOpen])
 
 
   useEffect(() => {
@@ -71,7 +77,7 @@ const Home = ({setResults, setSrc, src}) => {
               <ImageViewer src={src} />
             </SelectedImage>
           </PrimeSection>
-          { isOpen || <>
+          { hide || <>
           <Credits />
           <Toolbar setSrc={setSrc} setLoading={setLoading}setResults={setResults}/>
           <Footer />

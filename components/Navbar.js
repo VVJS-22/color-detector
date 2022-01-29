@@ -41,6 +41,8 @@ const Wrapper = styled.section`
             font-weight: 700;
             padding: 1rem 1.5rem;
             text-align: right;
+            user-select: none;
+            cursor: pointer;
         }
     }
 `
