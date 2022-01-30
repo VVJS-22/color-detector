@@ -62,32 +62,31 @@ const Wrapper = styled.section`
         &-close-btn {
             font-size: 2rem;
             font-weight: 700;
-            padding: 1rem 1.5rem;
-            text-align: right;
             user-select: none;
             cursor: pointer;
+            position: fixed;
+            top: 20px;
+            right: 20px;
         }
 
         &-items {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
         }
     }
 `
 
 const Nav = styled.section`
     padding: 1rem;
+    font-size: 1.5rem;
     text-transform: capitalize;
     font-weight: 700;
     letter-spacing: 0.5px;
     display: flex;
     align-items: center;
-
-    @media screen and (max-width: 320px) {
-        font-size: 0.875rem;
-    }
 
     .icon-label {
         margin-left: 1rem;
