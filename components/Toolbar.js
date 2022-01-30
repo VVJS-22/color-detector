@@ -223,13 +223,14 @@ const Wrapper = styled.section`
 
     .selection-deck {
         width: 200px;
-        height: 140px;
+        /* height: 140px; */
         position: absolute;
         bottom: 0;
         overflow: hidden;
         cursor: pointer;
         z-index: 10;
-        
+        height: ${({display}) => (display ? '160px' : '0')};
+        transition: height 0.4s ease-in;
     }
 
     .selection {
@@ -237,7 +238,8 @@ const Wrapper = styled.section`
         border-radius: ${({display}) => (display ? '1rem' : '50%')};
         box-shadow: inset 10px 10px 20px #F26263, inset -10px -10px 20px rgba(0, 0, 0, 0.25);
         transition: all 0.4s ease-in;
-        transform: ${({display}) => (display ? 'translateY(0)' : 'translateY(100%)')}
+        transform: ${({display}) => (display ? 'translateY(0)' : 'translateY(100%)')};
+        padding: 1rem;
     }
 
 `
@@ -247,6 +249,7 @@ const Option = styled.section`
     padding: 0.5rem;
     cursor: pointer;
     user-select: none;
+    font-size: 0.875rem;
 `
 
 export default React.memo(Toolbar);

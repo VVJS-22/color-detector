@@ -1,11 +1,17 @@
+import Image from 'next/image';
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import { navLinks } from '../lib/generators/navBarGenerator';
 
-const NavLink = React.memo(({url, label, target}) => {
+const NavLink = React.memo(({url, label, target, icon = '/assets/icon/home.svg'}) => {
     return ( 
         <Nav>
-            <a target={target} href={url}>{label}</a>
+            <Image
+            src={icon}
+            width={35}
+            height={35}
+            />
+            <a className='icon-label' target={target} href={url}>{label}</a>
         </Nav>
     );
 });
@@ -77,6 +83,12 @@ const Nav = styled.section`
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+
+    .icon-label {
+        margin-left: 1rem;
+    }
 `
 
 export default Navbar;
