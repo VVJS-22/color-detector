@@ -65,15 +65,14 @@ const Wrapper = styled.section`
             user-select: none;
             cursor: pointer;
             position: fixed;
-            top: 35px;
-            right: 35px;
+            top: 25px;
+            right: 25px;
         }
 
         &-items {
             display: flex;
             flex-flow: column;
             justify-content: center;
-            align-items: center;
             height: 100%;
         }
     }
