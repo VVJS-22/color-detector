@@ -65,8 +65,8 @@ const Wrapper = styled.section`
             user-select: none;
             cursor: pointer;
             position: fixed;
-            top: 20px;
-            right: 20px;
+            top: 35px;
+            right: 35px;
         }
 
         &-items {
