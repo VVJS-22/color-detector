@@ -80,11 +80,14 @@ const Wrapper = styled.section`
 const Nav = styled.section`
     padding: 1rem;
     text-transform: capitalize;
-    font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: 0.5px;
     display: flex;
     align-items: center;
+
+    @media screen and (max-width: 320px) {
+        font-size: 0.875rem;
+    }
 
     .icon-label {
         margin-left: 1rem;
