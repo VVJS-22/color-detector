@@ -72,6 +72,7 @@ const Wrapper = styled.section`
         &-items {
             display: flex;
             flex-flow: column;
+            align-items: center;
             justify-content: center;
             height: 100%;
         }
@@ -86,6 +87,8 @@ const Nav = styled.section`
     letter-spacing: 0.5px;
     display: flex;
     align-items: center;
+    width: 200px;
+    max-width: 100%;
 
     .icon-label {
         margin-left: 1rem;
