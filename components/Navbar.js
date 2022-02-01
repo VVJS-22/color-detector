@@ -10,6 +10,7 @@ const NavLink = React.memo(({url, label, target, icon = '/assets/icon/home.svg'}
             src={icon}
             width={35}
             height={35}
+            alt={label}
             />
             <a className='icon-label' target={target} href={url}>{label}</a>
         </Nav>

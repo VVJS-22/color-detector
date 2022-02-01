@@ -33,7 +33,8 @@ const Toolbar = ({setSrc, setLoading, setResults}) => {
 
     const isInvalid = input.src === "" || input.number === ""
 
-    const SECRET_URL = 'https://color-detector-api.herokuapp.com/'
+    const SECRET_URL = process.env.NEXT_PUBLIC_SECRET_URL
+
 
     const displayOption = useCallback(() => {
         setOption((state) => !state)
@@ -41,13 +42,42 @@ const Toolbar = ({setSrc, setLoading, setResults}) => {
 
     const setPaletteNumber = useCallback((n, label) => {
         setInput((state) => ({...state, number: n, type: label}))
-        console.log(n)
     }, [input]) 
 
     const setImage = useCallback((event) => {
         setInput((state) => ({...state, src: event.target.files[0]}))
         setSrc(URL.createObjectURL(event.target.files[0]))
     }, [input])
+
+    const grabColors = async (formData) => {
+        try {
+            const response = await axios({
+                method: 'post',
+                url: SECRET_URL,
+                data: formData,
+                headers: {
+                    'Content-Type': 'application/form-data'
+                }
+            })
+
+            const resultObj = response.data.data
+            const resultArr = Object.entries(resultObj)
+            const re = resultArr.filter(item => {
+                return item[1] > 0
+            })
+            re.sort((a,b) => {
+                return b[1] - a[1]
+            })
+            setResults(re)
+            router.push('results')
+            setTimeout(() => {
+                setLoading(false)
+            }, 1000)
+        } catch (error) {
+            alert(error)
+            setLoading(false)
+        }
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -58,37 +88,7 @@ const Toolbar = ({setSrc, setLoading, setResults}) => {
             const formData = new FormData()
             formData.append('img', input.src)
             formData.append('n', input.number)
-            const grabColors = async () => {
-                try {
-                    const response = await axios({
-                        method: 'post',
-                        url: SECRET_URL,
-                        data: formData,
-                        headers: {
-                            'Content-Type': 'application/form-data'
-                        }
-                    })
-
-                    const resultObj = response.data.data
-                    const resultArr = Object.entries(resultObj)
-                    const re = resultArr.filter(item => {
-                        return item[1] > 0
-                    })
-                    re.sort((a,b) => {
-                        return b[1] - a[1]
-                    })
-                    console.log(re)
-                    setResults(re)
-                    router.push('results')
-                    setTimeout(() => {
-                        setLoading(false)
-                    }, 1000)
-                } catch (error) {
-                    alert(error)
-                    setLoading(false)
-                }
-            }
-            grabColors()
+            grabColors(formData)
         }
     }
 
