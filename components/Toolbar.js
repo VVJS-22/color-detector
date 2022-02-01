@@ -1,6 +1,6 @@
-import React, {useCallback, useState, useEffect} from 'react';
+import React, {useCallback, useState } from 'react';
 import styled from 'styled-components';
-import { tools, paletteOptions } from '../lib/generators/toolbarGenerator';
+import { paletteOptions } from '../lib/generators/toolbarGenerator';
 import Image from 'next/image';
 import axios from 'axios'
 import { useRouter } from 'next/router';

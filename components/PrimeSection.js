@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import SelectedImage from './SelectedImage';
 
 const PrimeSection = ({ primeGradient, children }) => {
     return (

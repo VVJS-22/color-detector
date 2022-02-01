@@ -65,7 +65,6 @@ const Wrapper = styled.section`
             align-items: flex-start;
             padding: 1rem 0;
             width: 100%;
-            /* height: 200px; */
             flex-direction: column;
             padding: 1rem;
         }
@@ -74,9 +73,7 @@ const Wrapper = styled.section`
         }
     }
     p, .address-data {
-        /* color: #1591D8; */
         font-weight: 400;
-        /* padding: 1rem; */
         line-height: 1.5;
         padding: 2rem 0;
         font-size: 0.9rem;
