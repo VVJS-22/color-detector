@@ -5,10 +5,16 @@ import Image from 'next/image';
 import axios from 'axios'
 import { useRouter } from 'next/router';
 
-const OptionComp = ({ label, n, setPaletteNumber}) => {
+const OptionComp = ({ label, n, setPaletteNumber, displayOption }) => {
     return (
         <Option 
-        onClick={() => setPaletteNumber(n, label)}
+        onClick={
+            (event) => {
+            event.stopPropagation()
+            setPaletteNumber(n, label)
+            displayOption()
+            }
+        }
         className="option">
             {label}
         </Option>
@@ -128,7 +134,7 @@ const Toolbar = ({setSrc, setLoading, setResults}) => {
                         <div className="selection">
                         {
                             paletteOptions.map(option => (
-                                <OptionComp key={option.id} setPaletteNumber={setPaletteNumber} {...option} />
+                                <OptionComp key={option.id} setPaletteNumber={setPaletteNumber} displayOption={displayOption} {...option} />
                             ))
                         }
                         </div>
@@ -154,7 +160,6 @@ const Toolbar = ({setSrc, setLoading, setResults}) => {
 
 const Wrapper = styled.section`
 
-    /* height: 150px; */
     display: flex;
     justify-content: center;
     align-content: center;
@@ -163,7 +168,6 @@ const Wrapper = styled.section`
     
     .tool {
         &-deck {
-            /* height: 100%; */
             background: #faaa50fa;
             border-radius: 1rem;
             margin: 1rem 0;
@@ -223,7 +227,6 @@ const Wrapper = styled.section`
 
     .selection-deck {
         width: 200px;
-        /* height: 140px; */
         position: absolute;
         bottom: 0;
         overflow: hidden;

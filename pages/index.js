@@ -41,15 +41,10 @@ const Home = ({setResults, setSrc, src}) => {
   useEffect(() => {
     setSrc('/assets/icons/album.svg')
     setResults(null)
-  }, [])
-
-  useEffect(() => {
     setTimeout(() => {
       setLoading(false)
     }, 4000)
   }, [])
-
-
 
   return (
     <>

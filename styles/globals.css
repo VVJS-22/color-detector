@@ -4,7 +4,6 @@
   padding: 0;
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  /* color: #ffffff; */
 }
 
 a {
@@ -27,13 +26,4 @@ a {
 html, body, #__next {
   height: 100%;
 }
-
-
-/* .gradient {
-  background: rgb(242,98,99);
-  background: -moz-linear-gradient(244.83deg, #F26263 54.68%, #3BC9F3 132.14%);
-  background: -webkit-linear-gradient(244.83deg, #F26263 54.68%, #3BC9F3 132.14%);
-  background: linear-gradient(244.83deg, #F26263 54.68%, #3BC9F3 132.14%);
-} */
-
 

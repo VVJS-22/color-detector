@@ -2,16 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
 import { socialMedia } from '../lib/generators/socialMedia';
+import MediaIcon from './MediaIcon';
 
-const MediaIcon = React.memo(({ url, src, alt }) => {
-    return(
-        <a href={url}>
-            <Image src={src} alt={alt} width='25px' height='25px'/>
-        </a>
-    )
-})
-
-MediaIcon.displayName = 'MediaIcon'
 
 const Footer = () => {
     return (
@@ -34,8 +26,19 @@ const Footer = () => {
                     <h2 className="address-title">
                         Get In Touch
                     </h2>
+                    <h3 className="address-title">
+                        Canada
+                    </h3>
                     <div className="address-data">
                         Unit 503, Aspire building, 13763 101 avenue, Surrey V3T0N8, British Columbia, Canada.<br />
+                        contact@ambionsoftwares.com<br />
+                        +1 (236) 975 5512
+                    </div>
+                    <h3 className="address-title">
+                        India
+                    </h3>
+                    <div className="address-data">
+                    365/2, SKC Main Road, Surampatti, Erode,TamilNadu – 638009.<br />
                         ambionsoftwares@gmail.com<br />
                         +91 9342233411
                     </div>
