@@ -19,7 +19,7 @@ const resultBorder = {
 }
 
 
-const results = ({results, src }) => {
+const Results = ({results, src }) => {
 
     const router = useRouter()
 
@@ -73,4 +73,4 @@ const results = ({results, src }) => {
     )
 }
 
-export default results
+export default Results
