@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import Layout from '../components/Layout1'
-import styled from 'styled-components'
 import Header from '../components/Header'
 import { resultProps } from '../lib/generators/layoutGenerator'
 import PrimeSection from '../components/PrimeSection'
@@ -35,10 +34,10 @@ const Results = ({results, src }) => {
 
   return (
     <>
-      <MetaHead />
+      <MetaHead title="Results | Color Detector" />
 
       {
-        results && <Wrapper>
+        results && <div className='page-layout'>
           <Layout>
             <PrimeSection primeGradient="#f5aa50">
               <Header {...resultProps} goBack={goBack} />
@@ -62,18 +61,11 @@ const Results = ({results, src }) => {
               }
             </PaletteBox>
           </Layout>
-        </Wrapper>
+        </div>
       }
     </>
   )
 }
-
-const Wrapper = styled.main`
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  color: #ffffff;
-`
 
 
 export default Results

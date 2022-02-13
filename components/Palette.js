@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 
-const Palette = ({ code, percentage }) => {
+const Palette = ({ code, percentage, style }) => {
 
     const [ display, setDisplay ] = useState(false)
 
@@ -17,14 +17,18 @@ const Palette = ({ code, percentage }) => {
     return (
         <Wrapper code={code} display={display}>
             <div 
+            style={style}
             className="palette-div"
             onClick={(event) => {
                 event.stopPropagation()
                 copy(code)
             }}
             >
-                <span
-                className="palette-code">{code} | {percentage}%</span>
+                <div
+                className="palette-code">
+                    <span>{code}</span>
+                    {percentage && <span> | {percentage}%</span>}
+                </div>
                 <div className="palette-copy">
                     <Image 
                     src="/assets/icons/copy.svg"
@@ -43,6 +47,7 @@ const Palette = ({ code, percentage }) => {
 const Wrapper = styled.section`
 
     padding: 1rem;
+    cursor: pointer;
 
     .palette {
 

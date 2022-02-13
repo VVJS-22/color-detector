@@ -1,6 +1,5 @@
 import MetaHead from '../components/MetaHead'
 import Layout from '../components/Layout1'
-import styled from 'styled-components'
 import Header from '../components/Header'
 import SelectedImage from '../components/SelectedImage'
 import { homeProps } from '../lib/generators/layoutGenerator'
@@ -48,7 +47,7 @@ const Home = ({setResults, setSrc, src}) => {
 
   return (
     <>
-      <MetaHead />
+      <MetaHead title="Home | Color Detector" />
 
       { loading 
             ?
@@ -59,7 +58,7 @@ const Home = ({setResults, setSrc, src}) => {
                 size={80} />
             </div> 
             : 
-      <Wrapper>
+      <div className='page-layout'>
         <Layout>
           <PrimeSection primeGradient="#f26263">
             <Header {...homeProps} setIsOpen={setIsOpen} />
@@ -74,19 +73,11 @@ const Home = ({setResults, setSrc, src}) => {
           <Footer />
           </>}
         </Layout>
-      </Wrapper> 
+      </div> 
       }
     </>
   )
 }
-
-const Wrapper = styled.main`
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  color: #ffffff;
-`
-
 
 export default Home
 

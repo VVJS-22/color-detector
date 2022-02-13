@@ -11,7 +11,7 @@ const OptionComp = ({ label, n, setPaletteNumber, displayOption }) => {
         onClick={
             (event) => {
             event.stopPropagation()
-            setPaletteNumber(n, label)
+            setPaletteNumber(label, n)
             displayOption()
             }
         }
@@ -40,7 +40,7 @@ const Toolbar = ({setSrc, setLoading, setResults}) => {
         setOption((state) => !state)
     }, [option])
 
-    const setPaletteNumber = useCallback((n, label) => {
+    const setPaletteNumber = useCallback((label, n=0) => {
         setInput((state) => ({...state, number: n, type: label}))
     }, [input]) 
 
@@ -88,7 +88,14 @@ const Toolbar = ({setSrc, setLoading, setResults}) => {
             const formData = new FormData()
             formData.append('img', input.src)
             formData.append('n', input.number)
-            grabColors(formData)
+
+            if (input.type === '🖐️ Color Picker') {
+                router.push('/colorpicker/results')
+                setResults(true)
+                setLoading(false)
+            } else {
+                grabColors(formData)
+            }
         }
     }
 
@@ -132,6 +139,17 @@ const Toolbar = ({setSrc, setLoading, setResults}) => {
                     <div className="label">{input.type}</div>
                     <div className="selection-deck">
                         <div className="selection">
+                        <Option 
+                            onClick={
+                                (event) => {
+                                event.stopPropagation()
+                                setPaletteNumber("🖐️ Color Picker")
+                                displayOption()
+                                }
+                            }
+                            className="option">
+                                🖐️ Color Picker
+                        </Option>
                         {
                             paletteOptions.map(option => (
                                 <OptionComp key={option.id} setPaletteNumber={setPaletteNumber} displayOption={displayOption} {...option} />
@@ -232,7 +250,7 @@ const Wrapper = styled.section`
         overflow: hidden;
         cursor: pointer;
         z-index: 10;
-        height: ${({display}) => (display ? '160px' : '0')};
+        height: ${({display}) => (display ? '200px' : '0')};
         transition: height 0.4s ease-in;
     }
 
