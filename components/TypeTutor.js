@@ -28,7 +28,7 @@ const Wrapper = styled.section`
     color: #000;
     background: #F26263;
     width: 80%;
-    height: 90px;
+    height: auto;
     display: flex;
     flex-flow: row;
     align-items: center;
@@ -39,8 +39,31 @@ const Wrapper = styled.section`
     .type {
         &-wrapper {
         width: 40%;
-        height: 100%;
+        height: 250px;
         position: relative;
+        }
+        @media screen and (min-width: 470px){
+            &-wrapper {
+                height: 120px;
+            }
+        }
+
+        @media screen and (min-width: 415px){
+            &-wrapper {
+                height: 150px;
+            }
+        }
+
+        @media screen and (min-width: 410px){
+            &-wrapper {
+                height: 150px;
+            }
+        }
+
+        @media screen and (min-width: 290px){
+            &-wrapper {
+                height: 200px;
+            }
         }
 
         &-description {    
