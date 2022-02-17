@@ -14,9 +14,9 @@ export default React.memo(TypeDesc)
 
 const Wrapper = styled.details`
     padding: 1rem;
+    padding-left: 2rem;
     color: #252525;
     width: 100%;
-    margin-left: 1rem;
     cursor: pointer;
 
     #summary-title {
