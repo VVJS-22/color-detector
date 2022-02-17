@@ -7,10 +7,15 @@ const TypeTutor = ({title, slug, description}) => {
     <details>
         <summary>{title}</summary>
         <Wrapper>
-            <img
-            alt={title}
-            src={slug}
-            />
+            <div className='type-wrapper'>
+                <Image
+                    alt={title}
+                    src={slug}
+                    layout="fill"
+                    objectFit="cover"
+                    priority={true}
+                />
+            </div>
             <div className="type-description">{description}</div>
         </Wrapper>
     </details>
@@ -23,7 +28,7 @@ const Wrapper = styled.section`
     color: #000;
     background: #F26263;
     width: 80%;
-    height: auto;
+    height: 90px;
     display: flex;
     flex-flow: row;
     align-items: center;
@@ -32,6 +37,12 @@ const Wrapper = styled.section`
     cursor: pointer;
 
     .type {
+        &-wrapper {
+        width: 40%;
+        height: 100%;
+        position: relative;
+        }
+
         &-description {    
             font-size: 0.875rem;
             width: 60%;
@@ -40,9 +51,5 @@ const Wrapper = styled.section`
             line-height: 1.5;
         }   
     }
-
-    img {
-            width: 40%;
-        }
 `
 
