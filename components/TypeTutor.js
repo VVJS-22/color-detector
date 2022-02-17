@@ -34,6 +34,7 @@ const Wrapper = styled.section`
     align-items: center;
     border-radius: 10px;
     overflow: hidden;
+    cursor: pointer;
 
     .type {
         &-wrapper {

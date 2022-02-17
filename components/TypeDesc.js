@@ -17,6 +17,7 @@ const Wrapper = styled.details`
     color: #252525;
     width: 100%;
     margin-left: 1rem;
+    cursor: pointer;
 
     #summary-title {
         line-height: 1.5;
