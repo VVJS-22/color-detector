@@ -13,6 +13,7 @@ const TypeTutor = ({title, slug, description}) => {
                     src={slug}
                     layout="fill"
                     objectFit="cover"
+                    priority={true}
                 />
             </div>
             <div className="type-description">{description}</div>
