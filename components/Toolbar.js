@@ -112,7 +112,7 @@ const Toolbar = ({setSrc, setLoading, setResults}) => {
                         width={50}
                         height={50}
                         alt = 'Add Image'
-                        priority
+                        priority={true}
                         />
                     </label>
                     <input 
@@ -134,7 +134,7 @@ const Toolbar = ({setSrc, setLoading, setResults}) => {
                         width={50}
                         height={50}
                         alt = 'Select type'
-                        priority
+                        priority={true}
                     />
                     <div className="label">{input.type}</div>
                     <div className="selection-deck">
@@ -162,11 +162,11 @@ const Toolbar = ({setSrc, setLoading, setResults}) => {
                     <button type="submit">
                         <Image 
                             className='tool-icon'
-                            src='/assets/icons/process.svg'
+                            src='/assets/icons/magic1.png'
                             width={50}
-                            height={50}
+                            height={52}
                             alt = 'Process'
-                            priority
+                            priority={true}
                         />
                     </button>
                     <div className="label">process</div>
@@ -182,7 +182,7 @@ const Wrapper = styled.section`
     justify-content: center;
     align-content: center;
     margin-top: 1rem;
-
+    color: #282828;
     
     .tool {
         &-deck {
@@ -261,6 +261,7 @@ const Wrapper = styled.section`
         transition: all 0.4s ease-in;
         transform: ${({display}) => (display ? 'translateY(0)' : 'translateY(100%)')};
         padding: 1rem;
+        color: #fff;
     }
 
 `

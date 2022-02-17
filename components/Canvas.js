@@ -7,6 +7,34 @@ const Canvas = ({ src, styles, getStatus }) => {
     const imageRef = useRef()
     const [ status, setStatus ] = getStatus
 
+    const [canvasSize, setCanvasSize] = useState({
+        height: 450,
+        width: 490
+    })
+
+    const handleCanvasSize = () => {
+        if (window.innerWidth < 450 ) {
+            const width = window.innerWidth*90/100
+            setCanvasSize({height: 300, width: width})
+        } else {
+            setCanvasSize({height: 450, width: 480})
+        }
+        const canvas = canvasRef.current
+        const ctx = canvas.getContext("2d");
+        const img = imageRef.current;
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height );
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', handleCanvasSize)
+        window.addEventListener('load', handleCanvasSize)
+
+        return () => {
+            window.removeEventListener('resize',handleCanvasSize)
+            window.removeEventListener('load', handleCanvasSize)
+        }
+    })
+
     useEffect(() => {
         const canvas = canvasRef.current
         const ctx = canvas.getContext("2d");
@@ -51,7 +79,7 @@ const Canvas = ({ src, styles, getStatus }) => {
         <Wrapper status={status}>
 
             <img ref={imageRef} src={src} alt="Retry to add image" style={styles}/>
-            <canvas height="300"  ref={canvasRef} style={styles} />
+            <canvas width={canvasSize.width} height={canvasSize.height} ref={canvasRef} style={styles} />
         </Wrapper>
     );
 };
@@ -72,7 +100,7 @@ const Wrapper = styled.section`
 
     canvas {
         margin: 1rem;
-        cursor: url(/assets/sampleImages/round.cur), pointer;
+        cursor: pointer;
     }
 
     .status {

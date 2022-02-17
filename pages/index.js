@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import MetaHead from '../components/MetaHead'
 import Layout from '../components/Layout1'
 import Header from '../components/Header'
@@ -11,6 +12,13 @@ import Credits from '../components/Credits'
 import { HashLoader } from 'react-spinners'
 import { useState, useEffect, useMemo } from 'react'
 import Navbar from '../components/Navbar'
+import TypeDesc from '../components/TypeDesc'
+import { description } from '../lib/generators/typeDescription'
+
+
+const DynamicTypeTutor = dynamic(() => import('../components/TypeTutor'), {
+  loading: () => <p>loading...</p>
+})
 
 
 // colors: {
@@ -23,7 +31,7 @@ import Navbar from '../components/Navbar'
 
 const Home = ({setResults, setSrc, src}) => {
 
-  const [ loading, setLoading ] = useState(true)
+  const [ loading, setLoading ] = useState(false)
   const [ isOpen, setIsOpen ] = useState(false)
   const [ hide, setHide ] = useState(false)
 
@@ -70,6 +78,18 @@ const Home = ({setResults, setSrc, src}) => {
           { hide || <>
           <Credits />
           <Toolbar setSrc={setSrc} setLoading={setLoading}setResults={setResults}/>
+          <TypeDesc>
+            {
+              description.map(item => (
+                <DynamicTypeTutor 
+                key={item.id}
+                title={item.title}
+                slug={item.slug}
+                description={item.description}
+                />
+              ))
+            }
+          </TypeDesc>
           <Footer />
           </>}
         </Layout>

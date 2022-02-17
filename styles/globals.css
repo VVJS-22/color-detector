@@ -33,3 +33,6 @@ html, body, #__next {
   justify-content: center;
   color: #ffffff;
 }
+summary {
+  padding: 1rem 1rem 1rem 0;
+}
