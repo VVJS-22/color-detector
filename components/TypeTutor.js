@@ -27,7 +27,7 @@ export default React.memo(TypeTutor)
 const Wrapper = styled.section`
     color: #000;
     background: #F26263;
-    width: 80%;
+    width: 95%;
     height: auto;
     display: flex;
     flex-flow: row;
@@ -39,30 +39,25 @@ const Wrapper = styled.section`
     .type {
         &-wrapper {
         width: 40%;
-        height: 250px;
+        height: 230px;
         position: relative;
         }
-        @media screen and (min-width: 470px){
+
+        @media screen and (min-width: 290px){
             &-wrapper {
-                height: 120px;
+                height: 180px;
             }
         }
 
         @media screen and (min-width: 415px){
             &-wrapper {
-                height: 150px;
+                height: 120px;
             }
         }
 
-        @media screen and (min-width: 410px){
+        @media screen and (min-width: 480px){
             &-wrapper {
-                height: 150px;
-            }
-        }
-
-        @media screen and (min-width: 290px){
-            &-wrapper {
-                height: 200px;
+                height: 100px;
             }
         }
 
