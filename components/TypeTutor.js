@@ -43,8 +43,6 @@ const Wrapper = styled.section`
 
     img {
             width: 40%;
-            max-height: 130px;
-            /* height: 60px; */
         }
 `
 
