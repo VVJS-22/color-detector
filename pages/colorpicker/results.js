@@ -34,11 +34,11 @@ const Results = ({results, src }) => {
 
     const getStatus = [status, setStatus]
 
-    // useEffect(() => {
-    //     if (!results) {
-    //     router.push('/')
-    //     }
-    // }, [results])
+    useEffect(() => {
+        if (!results) {
+        router.push('/')
+        }
+    }, [results])
 
 
     return (

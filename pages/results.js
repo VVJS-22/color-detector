@@ -32,12 +32,6 @@ const Results = ({results, src }) => {
     }
   }, [results])
 
-  useEffect(() => {
-    window.addEventListener('reload', () => {
-      router.push('/')
-    })
-  },[])
-
   return (
     <>
       <MetaHead title="Results | Color Detector" />
